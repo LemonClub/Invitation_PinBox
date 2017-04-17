@@ -1,5 +1,7 @@
 <?php
+require_once $_SERVER['DOCUMENT_ROOT'].'/lemonade/preset.php';
 
+$gt = $token;
 
 ?>
 
@@ -8,7 +10,14 @@
   <head>
     <meta name="viewport" content="width=device-width" />
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <title>Invitation-PinBox</title>
+    <title>
+      <?
+        if ($gt == null)
+          echo "Invitation-PinBox";
+        else
+          echo $gt."-Invitation";
+      ?>
+    </title>
     <style>
       /* -------------------------------------
           GLOBAL RESETS
@@ -291,7 +300,14 @@
                   <table border="0" cellpadding="0" cellspacing="0">
                     <tr>
                       <td>
-                        <h1>invitation</h1>
+                        <h1>
+                          <?
+                            if ($gt == null)
+                              echo "Invitation-PinBox";
+                            else
+                              echo $gt;
+                          ?>
+                        </h1>
                         <h2>그룹 이름</h2>
                         <p>#태그1, #태그2, #태그3, #태그4, #태그5</p>
                         <p>성향 : 10대만 가입 가능</p>
