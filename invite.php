@@ -1,9 +1,14 @@
+<?php
+
+
+?>
+
 <!doctype html>
 <html>
   <head>
     <meta name="viewport" content="width=device-width" />
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <title>Simple Transactional Email</title>
+    <title>Invitation-PinBox</title>
     <style>
       /* -------------------------------------
           GLOBAL RESETS
@@ -20,7 +25,7 @@
         font-size: 14px;
         line-height: 1.4;
         margin: 0;
-        padding: 0; 
+        padding: 0;
         -ms-text-size-adjust: 100%;
         -webkit-text-size-adjust: 100%; }
 
@@ -260,7 +265,7 @@
           font-size: inherit !important;
           font-weight: inherit !important;
           line-height: inherit !important;
-          text-decoration: none !important; } 
+          text-decoration: none !important; }
         .btn-primary table td:hover {
           background-color: #34495e !important; }
         .btn-primary a:hover {
@@ -286,8 +291,13 @@
                   <table border="0" cellpadding="0" cellspacing="0">
                     <tr>
                       <td>
-                        <p>Hi there,</p>
-                        <p>Sometimes you just want to send a simple HTML email with a simple design and clear call to action. This is it.</p>
+                        <h1>invitation</h1>
+                        <h2>그룹 이름</h2>
+                        <p>#태그1, #태그2, #태그3, #태그4, #태그5</p>
+                        <p>성향 : 10대만 가입 가능</p>
+                        <hr/>
+                        <p>안녕하세요.</p>
+                        <p>저희 그룹은 OOO~~~~~~</p>
                         <table border="0" cellpadding="0" cellspacing="0" class="btn btn-primary">
                           <tbody>
                             <tr>
@@ -295,7 +305,7 @@
                                 <table border="0" cellpadding="0" cellspacing="0">
                                   <tbody>
                                     <tr>
-                                      <td> <a href="http://htmlemail.io" target="_blank">Call To Action</a> </td>
+                                      <td> <a href="http://htmlemail.io" target="_blank">Join the Group</a> </td>
                                     </tr>
                                   </tbody>
                                 </table>
@@ -303,8 +313,7 @@
                             </tr>
                           </tbody>
                         </table>
-                        <p>This is a really simple email template. Its sole purpose is to get the recipient to click the button with no distractions.</p>
-                        <p>Good luck! Hope it works.</p>
+                        <p></p>
                       </td>
                     </tr>
                   </table>
@@ -319,19 +328,19 @@
               <table border="0" cellpadding="0" cellspacing="0">
                 <tr>
                   <td class="content-block">
-                    <span class="apple-link">Company Inc, 3 Abbey Road, San Francisco CA 94102</span>
-                    <br> Don't like these emails? <a href="http://i.imgur.com/CScmqnj.gif">Unsubscribe</a>.
+                    <span class="apple-link">Company Inc, </span>
+                    <br> <a href="http://lemontree.dothome.co.kr/">PinBox</a>.
                   </td>
                 </tr>
                 <tr>
                   <td class="content-block powered-by">
-                    Powered by <a href="http://htmlemail.io">HTMLemail</a>.
+                    Powered by <a href="http://lemontree.dothome.co.kr/">LemonClub</a>.
                   </td>
                 </tr>
               </table>
             </div>
             <!-- END FOOTER -->
-            
+
           <!-- END CENTERED WHITE CONTAINER -->
           </div>
         </td>
