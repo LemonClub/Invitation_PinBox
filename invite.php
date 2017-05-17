@@ -1,7 +1,45 @@
 <?php
 require_once $_SERVER['DOCUMENT_ROOT'].'/lemonade/preset.php';
 
-$gt = $token;
+$q = "SELECT * FROM PB_ROOM WHERE PB_ROOM_TOKEN = '$p'";
+
+$result = $mysqli->query($q);
+
+
+if ($result->num_rows==1) {
+  $row = $result->fetch_array(MYSQLI_ASSOC);
+  $rname = $row['PB_ROOM_NAME'];
+  $rmng = $row['PB_ROOM_MNG'];
+  $rage = $row['PB_ROOM_AGE'];
+  $rimg = $row['PB_ROOM_PROFILE'];
+  $rreg = $row['PB_ROOM_REG_DATE'];
+  $rml = $row['PB_ROOM_MEM_LIMIT'];
+  $rmc = $row['PB_ROOM_MEM_COUNT'];
+  $rt_0 = $row['PB_ROOM_TAG_0'];
+  $rt_1 = $row['PB_ROOM_TAG_1'];
+  $rt_2 = $row['PB_ROOM_TAG_2'];
+  $rt_3 = $row['PB_ROOM_TAG_3'];
+  $rt_4 = $row['PB_ROOM_TAG_4'];
+  if ($row['PB_ROOM_GREETING'] == "")
+    $rgt = "아직 소개 인사말이 없습니다.";
+  else
+    $rgt = $row['PB_ROOM_GREETING'];
+}
+else {
+  echo "존재하지 않는 방 초대장입니다.";
+  $rname = "방 이름";
+  $rmng = "방 관리자";
+  $rage = "제한 나이";
+  $rimg = "이미지 주소";
+  $rreg = "0000-00-00";
+  $rml = "인원수 제한";
+  $rt_0 = "태그0";
+  $rt_1 = "태그1";
+  $rt_2 = "태그2";
+  $rt_3 = "태그3";
+  $rt_4 = "태그4";
+  $rgt = "아직 소개 인사말이 없습니다.";
+}
 
 ?>
 
@@ -15,7 +53,7 @@ $gt = $token;
         if ($gt == null)
           echo "Invitation-PinBox";
         else
-          echo $gt."-Invitation";
+          echo $rname."-Invitation";
       ?>
     </title>
     <style>
@@ -291,7 +329,7 @@ $gt = $token;
           <div class="content">
 
             <!-- START CENTERED WHITE CONTAINER -->
-            <span class="preheader">This is preheader text. Some clients will show this text as a preview.</span>
+            <span class="preheader"></span>
             <table class="main">
 
               <!-- START MAIN CONTENT AREA -->
@@ -302,18 +340,17 @@ $gt = $token;
                       <td>
                         <h1>
                           <?
-                            if ($gt == null)
                               echo "Invitation-PinBox";
-                            else
-                              echo $gt;
                           ?>
                         </h1>
-                        <h2>그룹 이름</h2>
-                        <p>#태그1, #태그2, #태그3, #태그4, #태그5</p>
-                        <p>성향 : 10대만 가입 가능</p>
+                        <h2><? echo $rname; ?></h2>
+                        <p><? echo "#".$rt_0.", #".$rt_1.", #".$rt_2.", #".$rt_3.", #".$rt_4; ?></p>
+                        <p>성향 : <? if ($rage > 0) echo $rage."대만 가입 가능";
+                                     else echo "나이 제한 없음"; ?></p>
+                        <p>인원 제한 : <? if ($rml > 0) echo $rml." 명 까지 (현재 ".$rmc." 명이 이용중)";
+                                         else echo "없음"; ?></p>
                         <hr/>
-                        <p>안녕하세요.</p>
-                        <p>저희 그룹은 OOO~~~~~~</p>
+                        <p><? echo $rgt; ?></p>
                         <table border="0" cellpadding="0" cellspacing="0" class="btn btn-primary">
                           <tbody>
                             <tr>
